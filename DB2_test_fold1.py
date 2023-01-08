@@ -29,7 +29,6 @@ block_idx = InceptionV3.BLOCK_INDEX_BY_DIM[2048]
 incepv3 = InceptionV3([block_idx])
 incepv3 = incepv3.cuda()
 
-#Best PSNR score index: 356 Best PSNR score: 28.461779867269478
 save_root = '/workspace/'
 model_weights_save = os.path.join(save_root, 'DB2_proposed_model_fold1_weights_with_CAM_tv')
 
@@ -148,4 +147,3 @@ Test_history['ssim'].append(epoch_test_ssim / len(test_loader))
 Test_history['fid'].append(epoch_test_fid / len(test_loader))
 Test_history = pd.DataFrame.from_dict(Test_history, orient='index')
 Test_history.to_csv(os.path.join(model_weights_save, 'test_history.csv'))
-#Epoch: 343      Time: 113.8209  PSNR: 26.6897   SSIM: 0.906413  FID: 39.6039
